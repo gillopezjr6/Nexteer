@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Global Information Technology</h1>
+    <p class="lead">This is a gradebook application that demonstrates how to use Entity Framework CRUD 
+    operations in an ASP.NET MVC 5 web application. Global IT teaches teaches .NET and java software courses. </p>
+    @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+</div>
+<h2>Welcome to Gil's Gradebook</h2>
+<div class="row">
+    <div class="col-md-6">
+        @*<div>*@    
+            <p><h4>@Html.ActionLink("Students", "Index", "Students")</h4> Add, view, and edit a list of students</p>
+        @*</div>*@
+    </div>
+    <div class="col-md-6">
+        <p><h4>@Html.ActionLink("Enrollments", "Index", "Enrollments")</h4>View and edit the courses students are enrolled in as well as their grades</p>
+    </div>
+</div>
+

@@ -1,0 +1,84 @@
+﻿@model GIT_MVC.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnrollmentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollmentDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Average)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Average)
+        </dd>
+
+    </dl>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            Course Title
+        </th>
+        <th>
+            Grade Percentage
+        </th>
+        <th>
+            Letter Grade
+        </th>
+        <th>
+            Credits
+        </th>
+    </tr>
+    @foreach (var item in Model.Enrollments)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GradePercentage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LetterGrade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Credits)
+            </td>
+        </tr>
+
+    }
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.StudentID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</table>
+

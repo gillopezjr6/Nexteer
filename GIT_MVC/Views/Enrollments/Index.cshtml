@@ -1,0 +1,64 @@
+﻿@model IEnumerable<GIT_MVC.Models.Enrollment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@*Displays the headers for the data in the Enrollment table*@ 
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Course.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GradePercentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LetterGrade)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.GradePercentage / )
+        </th>*@
+        <th></th>
+    </tr>
+
+    @*Loops through the data in the Enrollment table and displays it*@
+    
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GradePercentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LetterGrade)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EnrollmentID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EnrollmentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EnrollmentID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -11,24 +11,27 @@ namespace GIT_MVC.Models
 {
     using System;
     using System.Collections.Generic;
+    // Adding data annotations change the appearance 
     using System.ComponentModel.DataAnnotations;
 
     public partial class Enrollment
     {
         Student student = new Student();
         public int EnrollmentID { get; set; }
+        // Put a space between GradePercentage column
         [Display(Name = "Grade Percentage")]
         public Nullable<decimal> GradePercentage { get; set; }
+        // Put a space between the LetterGrade column
         [Display(Name = "Letter Grade")]
         public string LetterGrade
         {
             //Read only property. No reason to set the letter grade
             get
             {
+                // Set the letter grade scale with conditional statements 
                 string result;
                 if (GradePercentage >= 90)
                 {
-                    //Might want to use the math.round to round up 89.5 for example 
                     result = "A";
                 }
 

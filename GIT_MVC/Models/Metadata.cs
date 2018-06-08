@@ -3,6 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GIT_MVC.Models
 {
+    // Created this class so the auto generated models will not lose their annotations 
+    // when re-starting the solution 
     public class StudentMetadata
     {
         [Required]

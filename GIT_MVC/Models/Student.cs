@@ -11,6 +11,7 @@ namespace GIT_MVC.Models
 {
     using System;
     using System.Collections.Generic;
+    // Using annotations to alter the output
     using System.ComponentModel.DataAnnotations;
 
     public partial class Student
@@ -24,13 +25,16 @@ namespace GIT_MVC.Models
         public int StudentID { get; set; }
         [Required]
         [Display(Name = "First Name")]
+        // Limited the amount of characters to 50 for the First Name textbox
         [StringLength(50)]
         public string FirstName { get; set; }
         [Required]
         [Display(Name = "Last Name")]
+        // Limited the amount of characters to 50 for the Last Name textbox
         [StringLength(50)]
         public string LastName { get; set; }
         [DataType(DataType.Date)]
+        // Removed the time from the DateTime format. It only displayed the time as 12:00:00 a.m. 
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Enrollment Date")]
         public DateTime EnrollmentDate { get; set; }

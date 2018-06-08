@@ -19,10 +19,14 @@ namespace GIT_MVC.Controllers
         // GET: Students
         public ActionResult Index()
         {
+            // Student records are stored in a list. The index starts with zero  
+            // Entity framework writes SELECT statements to fetch the data from the Student table
+            // The Student list view is returned. 
             return View(db.Students.ToList());
         }
 
     // GET: Students/Details/5
+    // The StudentId is passed into the Details method 
     public ActionResult Details(int? id)
         {
             if (id == null)
@@ -41,12 +45,12 @@ namespace GIT_MVC.Controllers
         // GET: Students/Create
         public ActionResult Create()
         {
+            // Data for the student select is returned as a View
             return View();
         }
 
         // POST: Students/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Create a new Student record 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "StudentID,FirstName,LastName,EnrollmentDate")] Student student)
@@ -62,6 +66,7 @@ namespace GIT_MVC.Controllers
         }
 
         // GET: Students/Edit/5
+        // Edit a student record 
         public ActionResult Edit(int? id)
         {
             if (id == null)
